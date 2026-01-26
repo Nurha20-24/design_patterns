@@ -1,0 +1,11 @@
+package abstract_factory.ASCII_art_user_interface;
+
+public class CheckboxB extends Checkbox {
+    public CheckboxB(String text) {
+        this.text = text;
+    }
+
+    public void display() {
+        System.out.println(text);
+    }
+}
