@@ -1,16 +1,16 @@
-# Design Pattern course assignments
+# Design Pattern Course Assignments
 
 This repository contains implementations of the **23 Gang of Four (GoF) design patterns in Java**.
-Learning goals: Understand the concept of design pattern, understand the benefits of using and learning them, and get an overview of Gof design patterns.
+Learning goals: Understand the concept of design patterns, understand the benefits of using and learning them, and get an overview of Gof design patterns.
 
-### Creational
+## Creational Patterns
 - Factory Method
 - Abstract Factory
 - Singleton
 - Builder
 - Prototype
 
-### Structural
+## Structural Patterns
 - Composite 
 - Decorator
 - Facade
@@ -19,7 +19,7 @@ Learning goals: Understand the concept of design pattern, understand the benefit
 - Bridge 
 - Proxy
 
-### Behavioral
+## Behavioral Patterns
 - Chain of Responsibility 
 - Command
 - Interpreter
