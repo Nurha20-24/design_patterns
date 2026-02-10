@@ -1,4 +1,6 @@
 package observer.weather_station_simulator;
 
-public class Observer {
+public interface Observer {
+
+    void update(double currentTemperature);
 }
