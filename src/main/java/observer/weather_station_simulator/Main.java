@@ -12,8 +12,8 @@ public class Main {
         station.registerObserver(observerC);
 
         Thread t = new Thread(station);
-
         t.start();
+
         try {
             Thread.sleep(10000);
         } catch (Exception e) {

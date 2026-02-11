@@ -8,10 +8,10 @@ public class WeatherStation implements Runnable {
     private double maximum = 40;
     private double minimum = -20;
 
-    private List<Observer> observers = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
 
     public WeatherStation() {
-        this.temperature = (int)(Math.random()* maximum) + minimum;
+        this.temperature = Math.floor(minimum + Math.random() * (maximum - minimum));
     }
 
 
@@ -33,7 +33,7 @@ public class WeatherStation implements Runnable {
                 this.temperature = newTemperature;
             }
 
-            long time = (long)((Math.random() * 5000) + 1000);
+            long time = (long)((Math.random() * 4000) + 1000);
             try {
                 Thread.sleep(time);
             } catch (Exception e) {
@@ -44,15 +44,23 @@ public class WeatherStation implements Runnable {
     }
 
     public void registerObserver(Observer observer) {
-        observers.add(observer);
+        synchronized (observers) {
+            observers.add(observer);
+        }
     }
 
     public void removeObserver(Observer observer) {
-        observers.remove(observer);
+        synchronized (observers) {
+            observers.remove(observer);
+        }
     }
 
     public void notifyObservers(double currentTemperature) {
-        for (Observer observer : observers) {
+        List<Observer> observersCopy;
+        synchronized (observers) {
+            observersCopy = new ArrayList<>(observers);
+        }
+        for (Observer observer : observersCopy) {
             observer.update(currentTemperature);
         }
     }
